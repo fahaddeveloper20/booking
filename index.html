@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Door Supervisor Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sticky-links {
+            position: sticky;
+            top: 20px;
+        }
+        .checkbox-custom {
+            accent-color: #3b82f6;
+        }
+        .radio-custom {
+            accent-color: #3b82f6;
+        }
+        .popup-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        .date-option:hover {
+            border-color: #3b82f6;
+            background-color: #f8fafc;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .sticky-links {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Right Column Booking Box -->
+            <div class="lg:w-1/3">
+                <div class="sticky-links">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <!-- Header -->
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-5">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-xl font-bold">Book Now</h4>
+                                <div class="bg-white text-blue-700 rounded-full w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </div>
+                            <p class="text-blue-100 mt-2 text-sm">Select your course and dates</p>
+                        </div>
+                        
+                        <div class="p-5">
+                            <!-- OPTION 1 -->
+                            <div class="border border-gray-200 rounded-lg p-5 mb-6 hover:shadow-md transition-shadow duration-300">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h3 class="text-lg font-bold text-gray-900">With First Aid Certificate</h3>
+                                        <p class="text-gray-600 text-sm">If you already have a valid certificate</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-2xl font-bold text-green-600">£350</p>
+                                        <p class="text-gray-500 text-sm line-through">£400</p>
+                                        <p class="text-green-500 text-sm font-semibold">Save £50</p>
+                                    </div>
+                                </div>
+                                
+                                <button onclick="openDatePopup('door-supervisor-only', 350)" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center">
+                                    <i class="fas fa-calendar-check mr-2"></i> Select Dates - £350
+                                </button>
+                            </div>
+                            
+                            <!-- OPTION 2 -->
+                            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow duration-300">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h3 class="text-lg font-bold text-gray-900">Complete Package</h3>
+                                        <p class="text-gray-600 text-sm">Includes First Aid training</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-2xl font-bold text-blue-600">£400</p>
+                                        <p class="text-gray-500 text-sm">Everything included</p>
+                                    </div>
+                                </div>
+                                
+                                <button onclick="openDatePopup('complete-package', 400)" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center">
+                                    <i class="fas fa-calendar-check mr-2"></i> Select Dates - £400
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Date Selection Popup -->
+    <div id="datePopup" class="hidden fixed inset-0 z-50 overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Overlay -->
+            <div class="fixed inset-0 transition-opacity popup-overlay" aria-hidden="true"></div>
+            
+            <!-- Popup Content -->
+            <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full slide-in">
+                <div class="bg-white px-6 pt-6 pb-4">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900" id="popupTitle"></h2>
+                            <p class="text-gray-600" id="popupSubtitle"></p>
+                        </div>
+                        <button onclick="closePopup('datePopup')" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+                    </div>
+                    
+                    <!-- First Aid Dates (for Complete Package only) -->
+                    <div id="firstAidSection" class="hidden mb-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">First Aid Course Dates</h3>
+                        <div class="space-y-3">
+                            <div class="date-option p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-start">
+                                    <input type="radio" name="firstAidDate" id="faid1" value="5th January" class="radio-custom mt-1 mr-3 h-5 w-5">
+                                    <label for="faid1" class="cursor-pointer flex-1">
+                                        <span class="font-medium text-gray-900 block">5th January</span>
+                                        <span class="text-gray-600 text-sm">1-day course</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="date-option p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-start">
+                                    <input type="radio" name="firstAidDate" id="faid2" value="12th January" class="radio-custom mt-1 mr-3 h-5 w-5">
+                                    <label for="faid2" class="cursor-pointer flex-1">
+                                        <span class="font-medium text-gray-900 block">12th January</span>
+                                        <span class="text-gray-600 text-sm">1-day course</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="date-option p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-start">
+                                    <input type="radio" name="firstAidDate" id="faid3" value="19th January" class="radio-custom mt-1 mr-3 h-5 w-5">
+                                    <label for="faid3" class="cursor-pointer flex-1">
+                                        <span class="font-medium text-gray-900 block">19th January</span>
+                                        <span class="text-gray-600 text-sm">1-day course</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Door Supervisor Dates -->
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-4" id="dsTitle"></h3>
+                        <div class="space-y-3">
+                            <!-- Option 1 -->
+                            <div class="date-option p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-start">
+                                    <input type="radio" name="dsDate" id="ds1" value="6th-11th January" class="radio-custom mt-1 mr-3 h-5 w-5">
+                                    <label for="ds1" class="cursor-pointer flex-1">
+                                        <span class="font-medium text-gray-900 block">6th - 11th January</span>
+                                        <span class="text-gray-600 text-sm">6-day course</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 2 -->
+                            <div class="date-option p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-start">
+                                    <input type="radio" name="dsDate" id="ds2" value="13th-18th January" class="radio-custom mt-1 mr-3 h-5 w-5">
+                                    <label for="ds2" class="cursor-pointer flex-1">
+                                        <span class="font-medium text-gray-900 block">13th - 18th January</span>
+                                        <span class="text-gray-600 text-sm">6-day course</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Option 3 -->
+                            <div class="date-option p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-start">
+                                    <input type="radio" name="dsDate" id="ds3" value="20th-25th January" class="radio-custom mt-1 mr-3 h-5 w-5">
+                                    <label for="ds3" class="cursor-pointer flex-1">
+                                        <span class="font-medium text-gray-900 block">20th - 25th January</span>
+                                        <span class="text-gray-600 text-sm">6-day course</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Selected Dates Summary -->
+                    <div id="selectedDates" class="hidden mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Selected Dates:</h4>
+                        <div id="selectedDatesContent" class="space-y-2"></div>
+                    </div>
+                    
+                    <!-- Quantity -->
+                    <div class="mt-6">
+                        <label class="block text-gray-700 font-medium mb-2">Number of Participants</label>
+                        <div class="flex items-center">
+                            <button onclick="updateQuantity(-1)" class="w-10 h-10 rounded-l-lg border border-gray-300 bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+                                <i class="fas fa-minus text-gray-600"></i>
+                            </button>
+                            <input type="number" id="quantity" value="1" min="1" class="w-16 h-10 text-center border-t border-b border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button onclick="updateQuantity(1)" class="w-10 h-10 rounded-r-lg border border-gray-300 bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+                                <i class="fas fa-plus text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Total Price -->
+                    <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">Total Amount:</span>
+                            <span id="totalPrice" class="text-2xl font-bold text-green-600">£350.00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Add to Cart Button -->
+                    <div class="mt-6">
+                        <button onclick="redirectToCart()" id="addToCartBtn" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart - £<span id="cartPrice">350.00</span>
+                        </button>
+                        <p class="text-center text-gray-500 text-sm mt-3">
+                            You will be redirected to our secure cart to complete your purchase
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentPackage = '';
+        let currentPrice = 0;
+        let selectedFirstAidDate = '';
+        let selectedDSDate = '';
+        let quantity = 1;
+        
+        // Your Add to Cart URLs (REPLACE THESE WITH YOUR ACTUAL LINKS)
+        const addToCartURLs = {
+            'door-supervisor-only': 'https://yourwebsite.com/cart/?add-to-cart=123&quantity=',
+            'complete-package': 'https://yourwebsite.com/cart/?add-to-cart=456&quantity='
+        };
+        
+        // Open date selection popup
+        function openDatePopup(packageType, price) {
+            currentPackage = packageType;
+            currentPrice = price;
+            
+            // Update popup title
+            document.getElementById('popupTitle').textContent = 
+                packageType === 'door-supervisor-only' 
+                ? 'Select Door Supervisor Dates' 
+                : 'Select Course Dates';
+                
+            document.getElementById('popupSubtitle').textContent = 
+                packageType === 'door-supervisor-only' 
+                ? 'Door Supervisor Only - £350' 
+                : 'Complete Package - £400';
+            
+            // Show/hide first aid section
+            if (packageType === 'complete-package') {
+                document.getElementById('firstAidSection').classList.remove('hidden');
+                document.getElementById('dsTitle').textContent = 'Door Supervisor Course Dates';
+            } else {
+                document.getElementById('firstAidSection').classList.add('hidden');
+                document.getElementById('dsTitle').textContent = 'Select Course Dates';
+            }
+            
+            // Reset selections
+            resetSelections();
+            updateTotalPrice();
+            
+            // Show popup
+            document.getElementById('datePopup').classList.remove('hidden');
+            document.body.style.overflow = "hidden";
+        }
+        
+        // Close popup
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.add('hidden');
+            document.body.style.overflow = "auto";
+        }
+        
+        // Reset all selections
+        function resetSelections() {
+            selectedFirstAidDate = '';
+            selectedDSDate = '';
+            quantity = 1;
+            
+            // Uncheck all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Reset quantity
+            document.getElementById('quantity').value = 1;
+            
+            // Hide selected dates
+            document.getElementById('selectedDates').classList.add('hidden');
+        }
+        
+        // Update quantity
+        function updateQuantity(change) {
+            const quantityInput = document.getElementById('quantity');
+            let newQuantity = parseInt(quantityInput.value) + change;
+            
+            if (newQuantity < 1) newQuantity = 1;
+            
+            quantityInput.value = newQuantity;
+            quantity = newQuantity;
+            updateTotalPrice();
+        }
+        
+        // Update total price
+        function updateTotalPrice() {
+            const total = currentPrice * quantity;
+            document.getElementById('totalPrice').textContent = `£${total.toFixed(2)}`;
+            document.getElementById('cartPrice').textContent = total.toFixed(2);
+        }
+        
+        // Redirect to Add to Cart page
+        function redirectToCart() {
+            // Validate selections
+            if (!selectedDSDate) {
+                alert('Please select Door Supervisor course dates.');
+                return;
+            }
+            
+            if (currentPackage === 'complete-package' && !selectedFirstAidDate) {
+                alert('Please select a First Aid course date.');
+                return;
+            }
+            
+            // Get the Add to Cart URL for selected package
+            let cartUrl = addToCartURLs[currentPackage];
+            
+            if (!cartUrl) {
+                alert('Error: Cart URL not found.');
+                return;
+            }
+            
+            // Add quantity to URL
+            cartUrl += quantity;
+            
+            // You can add date parameters if your system supports them
+            // Example: cartUrl += `&ds_date=${encodeURIComponent(selectedDSDate)}`;
+            // if (selectedFirstAidDate) {
+            //     cartUrl += `&fa_date=${encodeURIComponent(selectedFirstAidDate)}`;
+            // }
+            
+            // Redirect to your Add to Cart page
+            window.location.href = cartUrl;
+        }
+        
+        // Initialize event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // First Aid date selection
+            document.querySelectorAll('input[name="firstAidDate"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.checked) {
+                        selectedFirstAidDate = this.value;
+                        updateSelectedDates();
+                    }
+                });
+            });
+            
+            // Door Supervisor date selection
+            document.querySelectorAll('input[name="dsDate"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.checked) {
+                        selectedDSDate = this.value;
+                        updateSelectedDates();
+                    }
+                });
+            });
+            
+            // Quantity input change
+            document.getElementById('quantity').addEventListener('change', function() {
+                let value = parseInt(this.value);
+                if (value < 1) this.value = 1;
+                quantity = value;
+                updateTotalPrice();
+            });
+            
+            // Close popup when clicking outside
+            window.onclick = function(event) {
+                if (event.target.classList.contains('popup-overlay')) {
+                    closePopup('datePopup');
+                }
+            }
+        });
+        
+        // Update selected dates display
+        function updateSelectedDates() {
+            const selectedDatesDiv = document.getElementById('selectedDates');
+            const contentDiv = document.getElementById('selectedDatesContent');
+            
+            let content = '';
+            
+            if (selectedDSDate) {
+                content += `<p class="text-blue-700"><span class="font-medium">Door Supervisor:</span> ${selectedDSDate}</p>`;
+            }
+            
+            if (selectedFirstAidDate) {
+                content += `<p class="text-blue-700"><span class="font-medium">First Aid Course:</span> ${selectedFirstAidDate}</p>`;
+            }
+            
+            if (content) {
+                contentDiv.innerHTML = content;
+                selectedDatesDiv.classList.remove('hidden');
+            } else {
+                selectedDatesDiv.classList.add('hidden');
+            }
+        }
+        
+        // Update Add to Cart button based on package
+        function updateAddToCartButton() {
+            const button = document.getElementById('addToCartBtn');
+            if (currentPackage === 'complete-package') {
+                button.className = 'w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl';
+            } else {
+                button.className = 'w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl';
+            }
+        }
+    </script>
+</body>
+</html>
