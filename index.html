@@ -55,6 +55,121 @@
 <body class="bg-gray-50 text-gray-800">
     <div class="container mx-auto px-4 py-8">
         <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Left Column Content Section -->
+            <div class="lg:w-2/3">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                    <div class="p-6">
+                        <!-- Main Course Title -->
+                        <h1 class="text-3xl font-bold text-gray-900 mb-4">Door Supervisor - SIA Level 2 Qualification</h1>
+                        <p class="text-gray-600 mb-6">Become a licensed Door Supervisor with our comprehensive training program. This course meets all SIA requirements for obtaining a Door Supervisor license in the UK.</p>
+                        
+                        <!-- Course Highlights -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-blue-50 p-5 rounded-lg">
+                                <h3 class="text-lg font-semibold text-blue-800 mb-2"><i class="fas fa-clock mr-2"></i>Course Duration</h3>
+                                <p class="text-gray-700">6 days of intensive training</p>
+                            </div>
+                            <div class="bg-green-50 p-5 rounded-lg">
+                                <h3 class="text-lg font-semibold text-green-800 mb-2"><i class="fas fa-certificate mr-2"></i>Certification</h3>
+                                <p class="text-gray-700">Nationally recognized Level 2 qualification</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Course Content Section -->
+                        <div id="courseContent" class="space-y-6">
+                            <!-- Content will be dynamically loaded or you can add static content here -->
+                            <div class="prose max-w-none">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Course Overview</h2>
+                                <p class="text-gray-700 mb-4">Our Door Supervisor training program is designed to provide you with all the skills and knowledge required to work as a licensed Door Supervisor in the UK. The course covers conflict management, physical intervention, emergency procedures, and legal aspects of the role.</p>
+                                
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">What You'll Learn</h3>
+                                <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-2">
+                                    <li>Principles of working in the private security industry</li>
+                                    <li>Application of conflict management in the private security industry</li>
+                                    <li>Physical intervention skills and techniques</li>
+                                    <li>Emergency procedures and first aid awareness</li>
+                                    <li>Legal aspects relevant to door supervision</li>
+                                    <li>Communication skills and customer service</li>
+                                </ul>
+                                
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Course Requirements</h3>
+                                <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-2">
+                                    <li>Must be 18 years or older</li>
+                                    <li>Valid ID (Passport or Driving License)</li>
+                                    <li>Proof of address (utility bill or bank statement)</li>
+                                    <li>Basic level of English understanding</li>
+                                </ul>
+                                
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Career Opportunities</h3>
+                                <p class="text-gray-700 mb-4">After completing this course, you can work in various venues including:</p>
+                                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                    <li>Bars, pubs, and nightclubs</li>
+                                    <li>Music venues and festivals</li>
+                                    <li>Shopping centers and retail outlets</li>
+                                    <li>Corporate buildings and offices</li>
+                                    <li>Sports stadiums and events</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Content Upload Section (For Admin) -->
+                        <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">Admin: Upload Course Content</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1" for="contentTitle">Content Title</label>
+                                    <input type="text" id="contentTitle" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter content title">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1" for="contentDescription">Content Description</label>
+                                    <textarea id="contentDescription" rows="3" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter content description"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-medium mb-1" for="contentFile">Upload PDF/Image (Optional)</label>
+                                    <input type="file" id="contentFile" accept=".pdf,.jpg,.jpeg,.png" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <button onclick="addContent()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+                                    <i class="fas fa-plus mr-2"></i> Add Content
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonials Section -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">What Our Students Say</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="border border-gray-200 rounded-lg p-5">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-user text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">John Smith</h4>
+                                        <p class="text-gray-600 text-sm">Completed Jan 2023</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700">"Excellent course! The trainers were very knowledgeable and the materials were comprehensive. Got my license within 2 weeks of completing the course."</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-5">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-user text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
+                                        <p class="text-gray-600 text-sm">Completed Dec 2022</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700">"The practical sessions were very helpful. I now feel confident working as a Door Supervisor. Highly recommend this training program!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Right Column Booking Box -->
             <div class="lg:w-1/3">
                 <div class="sticky-links">
@@ -108,6 +223,19 @@
                                 </button>
                             </div>
                         </div>
+                        
+                        <!-- Additional Info -->
+                        <div class="bg-gray-50 p-5 border-t border-gray-200">
+                            <h5 class="font-bold text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-shield-alt mr-2 text-blue-600"></i> What's Included
+                            </h5>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> All training materials</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Exam fees</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> Certificate upon completion</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2 text-xs"></i> SIA license application support</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,21 +283,6 @@
                             </div>
                         </div>
                         
-                        <!-- Email Notification -->
-                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
-                            <div class="flex">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-envelope text-yellow-400"></i>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm text-yellow-700">
-                                        <strong>Note:</strong> Your certificate will be automatically sent to 
-                                        <span class="font-semibold">tfgdeveloper2@gmail.com</span> for verification.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
                         <!-- File Upload Area -->
                         <div class="file-upload-area p-6 text-center cursor-pointer" id="fileUploadArea">
                             <input type="file" id="pdfUpload" accept=".pdf" class="hidden">
@@ -212,37 +325,6 @@
                                 <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
                             </div>
                         </div>
-                        
-                        <!-- Email Sending Progress -->
-                        <div id="emailProgress" class="hidden mt-4">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-envelope text-blue-500 mr-2"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium text-blue-700">Sending to tfgdeveloper2@gmail.com...</span>
-                                        <span class="text-sm font-medium text-blue-700" id="emailPercent">0%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                        <div id="emailProgressBar" class="bg-green-600 h-2.5 rounded-full" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Success Message -->
-                        <div id="emailSuccess" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-green-800">Certificate sent successfully!</p>
-                                    <p class="text-sm text-green-600">Your PDF has been sent to tfgdeveloper2@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     
                     <!-- Terms Checkbox -->
@@ -257,8 +339,8 @@
                     
                     <!-- Action Buttons -->
                     <div class="flex space-x-3">
-                        <button onclick="sendEmailAndProceed()" id="verifyButton" class="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                            <i class="fas fa-paper-plane mr-2"></i> Send & Continue
+                        <button onclick="verifyAndProceed()" id="verifyButton" class="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <i class="fas fa-check-circle mr-2"></i> Verify & Continue
                         </button>
                         <button onclick="closePopup('pdfUploadPopup')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
                             Cancel
@@ -389,13 +471,13 @@
                         </div>
                     </div>
                     
-                    <!-- Add to Cart Button -->
+                    <!-- Simple Checkout Button -->
                     <div class="mt-6">
-                        <button onclick="redirectToCart()" id="addToCartBtn" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
-                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart - £<span id="cartPrice">350.00</span>
+                        <button onclick="proceedToCheckout()" id="checkoutButton" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <i class="fas fa-lock mr-2"></i> Proceed to Checkout - £<span id="checkoutPrice">350.00</span>
                         </button>
                         <p class="text-center text-gray-500 text-sm mt-3">
-                            You will be redirected to our secure cart to complete your purchase
+                            You will be redirected to secure payment
                         </p>
                     </div>
                 </div>
@@ -412,14 +494,82 @@
         let quantity = 1;
         let uploadedFile = null;
         
-        // Your email address
-        const recipientEmail = 'tfgdeveloper2@gmail.com';
-        
-        // Your Add to Cart URLs (REPLACE THESE WITH YOUR ACTUAL LINKS)
-        const addToCartURLs = {
-            'door-supervisor-only': 'https://yourwebsite.com/cart/?add-to-cart=123&quantity=',
-            'complete-package': 'https://yourwebsite.com/cart/?add-to-cart=456&quantity='
+        // Your Checkout Links (REPLACE THESE WITH YOUR ACTUAL CHECKOUT LINKS)
+        const checkoutLinks = {
+            'door-supervisor-only': 'YOUR-CHECKOUT-LINK-FOR-350',
+            'complete-package': 'YOUR-CHECKOUT-LINK-FOR-400'
         };
+        
+        // Function to add content to left section
+        function addContent() {
+            const title = document.getElementById('contentTitle').value;
+            const description = document.getElementById('contentDescription').value;
+            const fileInput = document.getElementById('contentFile');
+            
+            if (!title || !description) {
+                alert('Please fill in both title and description');
+                return;
+            }
+            
+            const contentDiv = document.getElementById('courseContent');
+            
+            // Create new content element
+            const newContent = document.createElement('div');
+            newContent.className = 'border border-gray-200 rounded-lg p-5 bg-gray-50';
+            
+            let contentHTML = `
+                <h3 class="text-xl font-bold text-gray-900 mb-2">${title}</h3>
+                <p class="text-gray-700 mb-3">${description}</p>
+            `;
+            
+            // Check if file was uploaded
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const fileType = file.type;
+                
+                if (fileType === 'application/pdf') {
+                    contentHTML += `
+                        <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                            <i class="fas fa-file-pdf text-blue-500 text-xl mr-3"></i>
+                            <div>
+                                <p class="font-medium text-blue-800">${file.name}</p>
+                                <p class="text-blue-600 text-sm">PDF Document</p>
+                            </div>
+                        </div>
+                    `;
+                } else if (fileType.startsWith('image/')) {
+                    contentHTML += `
+                        <div class="mt-3">
+                            <p class="font-medium text-gray-700 mb-2">Uploaded Image:</p>
+                            <div class="border border-gray-300 rounded-lg p-2">
+                                <img src="${URL.createObjectURL(file)}" alt="${title}" class="max-w-full h-auto rounded">
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            // Add delete button
+            contentHTML += `
+                <div class="mt-4 flex justify-end">
+                    <button onclick="this.parentElement.parentElement.remove()" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                        <i class="fas fa-trash mr-1"></i> Remove Content
+                    </button>
+                </div>
+            `;
+            
+            newContent.innerHTML = contentHTML;
+            
+            // Add to the top of the content section
+            contentDiv.prepend(newContent);
+            
+            // Clear the form
+            document.getElementById('contentTitle').value = '';
+            document.getElementById('contentDescription').value = '';
+            document.getElementById('contentFile').value = '';
+            
+            alert('Content added successfully!');
+        }
         
         // Open PDF upload popup for £350 option
         function openPdfUploadPopup() {
@@ -428,8 +578,6 @@
             document.getElementById('certificateTerms').checked = false;
             document.getElementById('verifyButton').disabled = true;
             document.getElementById('selectedFilePreview').classList.add('hidden');
-            document.getElementById('emailProgress').classList.add('hidden');
-            document.getElementById('emailSuccess').classList.add('hidden');
             
             // Show popup
             document.getElementById('pdfUploadPopup').classList.remove('hidden');
@@ -564,8 +712,6 @@
             document.getElementById('selectedFilePreview').classList.add('hidden');
             document.getElementById('verifyButton').disabled = true;
             document.getElementById('uploadProgress').classList.add('hidden');
-            document.getElementById('emailProgress').classList.add('hidden');
-            document.getElementById('emailSuccess').classList.add('hidden');
         }
         
         // Simulate upload progress
@@ -598,8 +744,8 @@
             else return (bytes / 1048576).toFixed(1) + ' MB';
         }
         
-        // Send email and proceed to date selection
-        async function sendEmailAndProceed() {
+        // Verify PDF and proceed to date selection
+        function verifyAndProceed() {
             if (!uploadedFile) {
                 alert('Please upload your First Aid Certificate PDF.');
                 return;
@@ -610,79 +756,13 @@
                 return;
             }
             
-            // Show email sending progress
-            document.getElementById('emailProgress').classList.remove('hidden');
-            const emailProgressBar = document.getElementById('emailProgressBar');
-            const emailPercent = document.getElementById('emailPercent');
+            // Close PDF upload popup
+            closePopup('pdfUploadPopup');
             
-            // Simulate email sending progress
-            let progress = 0;
-            const emailInterval = setInterval(() => {
-                progress += 10;
-                emailProgressBar.style.width = `${progress}%`;
-                emailPercent.textContent = `${progress}%`;
-                
-                if (progress >= 100) {
-                    clearInterval(emailInterval);
-                    
-                    // Show success message
-                    setTimeout(() => {
-                        document.getElementById('emailProgress').classList.add('hidden');
-                        document.getElementById('emailSuccess').classList.remove('hidden');
-                        
-                        // In a real application, you would send the email here
-                        // For now, we'll simulate it
-                        simulateEmailSending();
-                        
-                        // Proceed to date selection after a delay
-                        setTimeout(() => {
-                            closePopup('pdfUploadPopup');
-                            openDatePopup('door-supervisor-only', 350);
-                        }, 1500);
-                    }, 500);
-                }
-            }, 100);
-        }
-        
-        // Simulate email sending (in production, use a backend service)
-        async function simulateEmailSending() {
-            // In a real application, you would:
-            // 1. Send the file to your backend
-            // 2. Use a service like EmailJS, SendGrid, or your own SMTP server
-            // 3. Send the PDF as an attachment to tfgdeveloper2@gmail.com
-            
-            // Example using FormData (requires backend endpoint)
-            /*
-            const formData = new FormData();
-            formData.append('pdfFile', uploadedFile);
-            formData.append('recipientEmail', recipientEmail);
-            formData.append('subject', 'First Aid Certificate Upload - Door Supervisor Booking');
-            formData.append('message', 'A customer has uploaded their First Aid Certificate for verification.');
-            
-            try {
-                const response = await fetch('/api/send-email', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if (!response.ok) {
-                    throw new Error('Failed to send email');
-                }
-                
-                const result = await response.json();
-                console.log('Email sent successfully:', result);
-            } catch (error) {
-                console.error('Error sending email:', error);
-                alert('There was an error sending the email. Please try again.');
-            }
-            */
-            
-            console.log('Simulating email to:', recipientEmail);
-            console.log('File:', uploadedFile.name);
-            console.log('File size:', uploadedFile.size);
-            
-            // For now, just log the details
-            alert(`In production, the PDF would be sent to ${recipientEmail}`);
+            // Open date selection for door-supervisor-only package
+            setTimeout(() => {
+                openDatePopup('door-supervisor-only', 350);
+            }, 300);
         }
         
         // Reset all selections
@@ -719,11 +799,15 @@
         function updateTotalPrice() {
             const total = currentPrice * quantity;
             document.getElementById('totalPrice').textContent = `£${total.toFixed(2)}`;
-            document.getElementById('cartPrice').textContent = total.toFixed(2);
+            document.getElementById('checkoutPrice').textContent = total.toFixed(2);
+            
+            // Update checkout button text
+            document.getElementById('checkoutButton').innerHTML = 
+                `<i class="fas fa-lock mr-2"></i> Proceed to Checkout - £${total.toFixed(2)}`;
         }
         
-        // Redirect to Add to Cart page
-        function redirectToCart() {
+        // Proceed to checkout (direct to payment)
+        function proceedToCheckout() {
             // Validate selections
             if (!selectedDSDate) {
                 alert('Please select Door Supervisor course dates.');
@@ -735,30 +819,29 @@
                 return;
             }
             
-            // Get the Add to Cart URL for selected package
-            let cartUrl = addToCartURLs[currentPackage];
+            // Get the checkout URL for selected package
+            let checkoutUrl = checkoutLinks[currentPackage];
             
-            if (!cartUrl) {
-                alert('Error: Cart URL not found.');
+            if (!checkoutUrl || checkoutUrl === 'https://virpiosecurity.co.uk/checkout/?add-to-cart=10638' || checkoutUrl === 'YOUR-CHECKOUT-LINK-FOR-400') {
+                alert('Checkout link not configured. Please contact support.');
                 return;
             }
             
-            // Add quantity to URL
-            cartUrl += quantity;
+            // Add quantity parameter if needed
+            if (quantity > 1) {
+                if (checkoutUrl.includes('?')) {
+                    checkoutUrl += `&quantity=${quantity}`;
+                } else {
+                    checkoutUrl += `?quantity=${quantity}`;
+                }
+            }
             
             // Add date parameters if your system supports them
-            // cartUrl += `&ds_date=${encodeURIComponent(selectedDSDate)}`;
-            // if (selectedFirstAidDate) {
-            //     cartUrl += `&fa_date=${encodeURIComponent(selectedFirstAidDate)}`;
-            // }
+            // Example:
+            // checkoutUrl += `&date=${encodeURIComponent(selectedDSDate)}`;
             
-            // Add file reference if uploaded (you would need server-side handling for this)
-            // if (uploadedFile && currentPackage === 'door-supervisor-only') {
-            //     cartUrl += `&certificate_uploaded=true`;
-            // }
-            
-            // Redirect to your Add to Cart page
-            window.location.href = cartUrl;
+            // Redirect to your checkout/payment page
+            window.location.href = checkoutUrl;
         }
         
         // Initialize event listeners
